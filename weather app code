@@ -1,0 +1,15 @@
+import requests
+
+city_name ='Amravati'
+API_KEY = '7588d624eb841ed905cad078cf353289'
+url ='https://api.openweathermap.org/data/2.5/weather?q={Amaravati}&appid={7588d624eb841ed905cad078cf353289}&units=metric'
+
+
+response = requests.get(url)
+if response.status_code == 200:
+ data = response.json()
+ print('Weather is ',data['weather'][0]['description'])
+ print('Current temperature is',data['main']['temp'])
+ print('Current Temperature Feels like is',data['main']['feels_like'])
+ print('Current Humidity is',data['main']['humidity'])
+
